@@ -6,14 +6,27 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  let number =["A","2","3","4","5","6","8","9","10","J","Q","K"]
-  let numbercart =number[Math.floor(Math.random()*number.length)]
-  
-  document.getElementById("center").innerHTML=numbercart
+  let numbers =["A","2","3","4","5","6","8","9","10","J","Q","K"]
   let pinta = ["♦", "♥", "♠", "♣"]
-  let pintacart = pinta[Math.floor(Math.random()*pinta.length)]
+
+  let randomNumber =numbers[Math.floor(Math.random()*numbers.length)]
+  let randomPinta = pinta[Math.floor(Math.random()*pinta.length)]
   
-  document.querySelectorAll(".figura").forEach(figure => figure.innerHTML = pintacart)
+  const numberElement = document.getElementById("center")
+  numberElement.innerHTML=randomNumber
+  if (randomPinta == "♦" || randomPinta == "♥") { 
+    numberElement.style.color = "red"
+  } else { 
+    numberElement.style.color = "black"
+  }
+  document.querySelectorAll(".figura").forEach(figure => {
+     figure.innerHTML = randomPinta
+     if (randomPinta == "♦" || randomPinta == "♥") { 
+      figure.style.color = "red"
+    } else { 
+      figure.style.color = "black"
+    }
+    })
 
 
 
